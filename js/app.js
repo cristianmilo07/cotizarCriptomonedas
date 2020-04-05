@@ -1,32 +1,25 @@
-const cotizador = new API('API_AQUI');
+const cotizador = new API('f426c6b280b97e54d281dfb9f8a72c52d6520340257f350881fc20e683c82b49');
 const ui = new Interfaz();
 
-// leer el formulario
-
+// Leer el formulario
 const formulario = document.querySelector('#formulario');
-// eventlistener
+// evenntListener ( Seleccionarlo )
 formulario.addEventListener('submit', (e) => {
      e.preventDefault();
 
-     // leer la moneda seleccionada
+     //Leer la moneada seleccionada
      const monedaSelect = document.querySelector('#moneda');
      const monedaSeleccionada = monedaSelect.options[monedaSelect.selectedIndex].value;
 
-     // leer la criptomoneda seleccionada
-     const criptoMonedaSelect = document.querySelector('#criptomoneda');
-     const criptoMonedaSeleccionada = criptoMonedaSelect.options[criptoMonedaSelect.selectedIndex].value;
-     
-     // comprobar que ambos campos tengan algo seleccionado
-     if(monedaSeleccionada === '' || criptoMonedaSeleccionada === '') {
-          // arrojar una alerta de error
-          ui.mostrarMensaje('Ambos Campos son Obligatorios', 'alert bg-danger text-center');
-     } else {
-          // todo bien, consultar la api
-          cotizador.obtenerValores(monedaSeleccionada, criptoMonedaSeleccionada) 
-               .then(data => {
-                    ui.mostrarResultado(data.resultado.RAW,monedaSeleccionada, criptoMonedaSeleccionada );
-               })
+     //Leer la Criptomoneada seleccionada
+     const criptMonedaSelect = document.querySelector('#criptomoneda');
+     const criptoMonedaSeleccionada = criptMonedaSelect.options[criptMonedaSelect.selectedIndex].value;
+
+     // comprobar q ambos campos tengan al seleccionado
+     if (monedaSeleccionada === '' || criptoMonedaSeleccionada === ''){
+          // arrojar una alerta de error 
+          ui.mostrarMensaje('Ambos casos son obligatorios', 'alert bg-danger text-center');
+     }else{
+
      }
-
-
 })
